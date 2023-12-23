@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ProductItem from "./product-page/ProductItem";
 import Item from "antd/es/list/Item";
-const productURL = `https://small-melons-stare.loca.lt/api/v1/product?fields=["$all"]`;
+const productURL = `https://three-rats-fly.loca.lt/api/v1/product?fields=["$all"]`;
 
 function App() {
   const Body = () => {

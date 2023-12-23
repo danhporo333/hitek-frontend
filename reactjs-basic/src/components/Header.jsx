@@ -12,6 +12,11 @@ const categories = [
   { url: "/banh-keo", title: "bánh kẹo" },
 ];
 
+const login = [
+  { url: "/login", title: "Đăng nhập" },
+  { url: "/register", title: "Đăng kí" },
+];
+
 const Header = ({ isModalOpen }) => {
   const userLocalStorage = JSON.parse(localStorage.getItem("userInfo"));
   return (
@@ -60,12 +65,15 @@ const Header = ({ isModalOpen }) => {
                   height={32}
                 />
                 <div className="register">
-                  <span onClick={isModalOpen} className="sgin-in">
+                  {login.map((login1) => (
+                    <Link to={login1.url}>{login1.title}</Link>
+                  ))} 
+                  {/* <span onClick={isModalOpen} className="sgin-in">
                     Đăng Nhập
                   </span>
                   <span onClick={isModalOpen} className="sgin-up">
                     Đăng kí
-                  </span>
+                  </span> */}
                   {/* <span onClick={isModalOpen}>
                     {userLocalStorage.email
                       ? "Tài khoản"

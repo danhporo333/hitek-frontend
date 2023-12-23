@@ -137,6 +137,14 @@ html {
   color: hsla(0, 0%, 100%, 0.7);
 }
 
+.register a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.register a:hover {
+  color: hsla(0, 0%, 100%, 0.7);
+}
 /* Giỏ hàng */
 
 .cartItem {
@@ -352,7 +360,7 @@ footer {
   padding-left: 15px;
   padding-right: 15px;
   margin: 0 auto;
-  height: 1028px;
+  height: 990px;
 }
 
 .container-main .main .header-main {
@@ -697,8 +705,8 @@ footer {
   height: 286px;
 }
 
-.summaryActionBar {
-}
+/* .summaryActionBar {
+} */
 
 .summarySortBar {
   display: flex;
@@ -810,3 +818,5 @@ footer {
 .categoryBarContent .item:hover {
   border-bottom: 4px solid rgb(188, 192, 197);
 }
+
+/* đang nhập */

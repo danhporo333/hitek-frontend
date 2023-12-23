@@ -13,12 +13,13 @@ import {
 import { Button, Modal, Input, Space, message } from "antd";
 import axios from "axios";
 import md5 from "md5";
-const LoginURL = "https://small-melons-stare.loca.lt/api/v1/auth/login";
+const LoginURL = "https://three-rats-fly.loca.lt/api/v1/auth/login";
 
-const userData = {
-  userName: "dung",
-  passWord: "123",
-};
+// const userData = {
+//   userName: "dung",
+//   passWord: "123",
+// };
+
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [userName, setUsername] = useState("");
@@ -68,8 +69,8 @@ const Home = () => {
   return (
     <>
       {/* Phần Header */}
-      <HeaderComponent isModalOpen={showModal} />
-
+      <HeaderComponent /> 
+  {/* isModalOpen={showModal} */}
       <CategoryBar />
 
       {/* Phần banner */}
@@ -84,7 +85,7 @@ const Home = () => {
       {/* Phần Footer */}
       <FooterComponent />
 
-      <Modal
+      {/* <Modal
         okText="Đăng nhập"
         cancelText="Hủy"
         title="Đăng nhập"
@@ -113,7 +114,7 @@ const Home = () => {
             }
           />
         </Space>
-      </Modal>
+      </Modal> */}
     </>
   );
 };
