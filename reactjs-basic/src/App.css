@@ -106,14 +106,15 @@ html {
   font-weight: 400;
   white-space: nowrap;
   display: grid;
-  grid-template-columns: 70px 50px;
+  grid-template-columns: 70px 53px;
+  grid-row-gap: 5px;
 }
 
 .register span {
   white-space: nowrap;
   text-overflow: ellipsis;
   display: inline-block;
-  overflow: hidden;
+  overflow: hidden; 
 }
 
 .register span:first-child {

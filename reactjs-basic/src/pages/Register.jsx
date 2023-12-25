@@ -1,54 +1,116 @@
 import "../Register.css";
 import React, { useState } from "react";
+import { message } from "antd";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import md5 from "md5";
+const RegisterURL = "https://weak-paws-smash.loca.lt/api/v1/auth/register";
 
-function App() { 
-    return (
-        <div className="body1">
-            <div className="wrapper">
-                <form action="">
-                    <h1>Registration</h1>
+function Register() {
+  const [fullName, setFullname] = useState("");
+  const [userName, setUsername] = useState("");
+  const [Email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [passWord, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
 
-                    <div className="input-box">
-                        <div className="input-field">
-                            <input type="text" placeholder="Full Name" required="" />
-                            <i className="bx bxs-user" />
-                        </div>
-                        <div className="input-field">
-                            <input type="text" placeholder="Username" required="" />
-                            <i className="bx bxs-user" />
-                        </div>
-                    </div>
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (passWord !== confirmPassword) {
+      message.error("hai mật khẩu không giống nhau mời nhập lại");
+      return;
+    }
 
-                    <div className="input-box">
-                        <div className="input-field">
-                            <input type="email" placeholder="Email" required="" />
-                            <i className="bx bxs-envelope" />
-                        </div>
-                        <div className="input-field">
-                            <input type="number" placeholder="Phone Number" required="" />
-                            <i className="bx bxs-phone" />
-                        </div>
-                    </div>
+    try {
+      const response = await axios.post(RegisterURL, {
+        fullname: fullName,
+        username: userName,
+        email: Email,
+        phonenumber: phoneNumber,
+        password: md5(passWord), // Encrypting the password
+      });
+      console.log(response);
+      message.success("Tạo tài khoản thành công");
+      navigate("/login"); // Redirect to login page after successful registration
+    } catch (error) {
+      message.error("An error occurred during registration");
+    }
+  };
+  return (
+    <div className="body1">
+      <div className="wrapper">
+        <form onSubmit={handleSubmit}>
+          <h1>Registration</h1>
 
-                    <div className="input-box">
-                        <div className="input-field">
-                            <input type="password" placeholder="Password" required="" />
-                            <i className="bx bxs-lock-alt" />
-                        </div>
-                        <div className="input-field">
-                            <input type="password" placeholder="Confirm Password" required="" />
-                            <i className="bx bxs-lock-alt" />
-                        </div>
-                    </div>
-
-                    <label>
-                    <input type="checkbox" />I hereby declare that the above informationprovided is true and correct</label>
-
-                    <button type="submit" className="btn">Register</button>
-                </form>
+          <div className="input-box">
+            <div className="input-field">
+              <input
+                type="text"
+                placeholder="Full Name"
+                onChange={(e) => setFullname(e.target.value)}
+              />
+              <i className="bx bxs-user" />
             </div>
+            <div className="input-field">
+              <input
+                type="text"
+                placeholder="Username"
+                onChange={(e) => setUsername(e.target.value)}
+              />
+              <i className="bx bxs-user" />
+            </div>
+          </div>
+
+          <div className="input-box">
+            <div className="input-field">
+              <input
+                type="email"
+                placeholder="Email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <i className="bx bxs-envelope" />
+            </div>
+            <div className="input-field">
+              <input
+                type="number"
+                placeholder="Phone Number"
+                onChange={(e) => setPhoneNumber(e.target.value)}
+              />
+              <i className="bx bxs-phone" />
+            </div>
+          </div>
+
+          <div className="input-box">
+            <div className="input-field">
+              <input
+                type="password"
+                placeholder="Password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <i className="bx bxs-lock-alt" />
+            </div>
+            <div className="input-field">
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+              <i className="bx bxs-lock-alt" />
+            </div>
+          </div>
+
+          <label>
+            <input type="checkbox" />I hereby declare that the above
+            informationprovided is true and correct
+          </label>
+
+          <button type="submit" className="btn">
+            Register
+          </button>
+        </form>
+      </div>
     </div>
-    );
+  );
 }
-export default App;
+export default Register;

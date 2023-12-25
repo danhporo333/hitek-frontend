@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 // mock data danh mục sản phẩm
 const categories = [
   { url: "/trai-cay", title: "trái cây" },
@@ -18,6 +18,13 @@ const login = [
 ];
 
 const Header = ({ isModalOpen }) => {
+  const navigate = useNavigate();
+  function logout() {
+    // Xóa dữ liệu trong localStorage
+    localStorage.clear();
+    // Chuyển hướng người dùng về trang chủ
+    navigate("/");
+  }
   const userLocalStorage = JSON.parse(localStorage.getItem("userInfo"));
   return (
     <div>
@@ -65,30 +72,21 @@ const Header = ({ isModalOpen }) => {
                   height={32}
                 />
                 <div className="register">
-                  {login.map((login1) => (
-                    <Link to={login1.url}>{login1.title}</Link>
-                  ))} 
-                  {/* <span onClick={isModalOpen} className="sgin-in">
-                    Đăng Nhập
-                  </span>
-                  <span onClick={isModalOpen} className="sgin-up">
-                    Đăng kí
-                  </span> */}
-                  {/* <span onClick={isModalOpen}>
-                    {userLocalStorage.email
-                      ? "Tài khoản"
-                      : "Đăng Nhập/ Đăng Ký"}
-                  </span>
-                  <span>
-                    {userLocalStorage.email
-                      ? userLocalStorage.email
-                      : "Tài khoản"}
-                  </span> */}
-                  {/* <span>Tài khoản</span> */}
-                  <span onClick={isModalOpen} className="sgin-up">
+              {/* Conditionally render login/register or username and logout based on user login status */}
+              {userLocalStorage ? (
+                <>
+                  <span className="account-text">Tài khoản: </span>
+                  <span className="username">{userLocalStorage.username}</span>
+                  <span onClick={logout} className="sign-up">
                     Đăng xuất
                   </span>
-                </div>
+                </>
+              ) : (
+                login.map((loginItem) => (
+                  <Link to={loginItem.url} key={loginItem.url}>{loginItem.title}</Link>
+                ))
+              )}
+            </div>
               </div>
               {/* Phần giỏ hàng */}
               <div className="cartItem">

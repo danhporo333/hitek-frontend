@@ -37,7 +37,7 @@ const ProductItem = (props) => {
             //     ? imageSrc
             //     : imageSrcAlt
             // }`}
-            src="https://three-rats-fly.loca.lt/api/v1/image/get/image-1703067361701.png"
+            src="https://weak-paws-smash.lo ca.lt/api/v1/image/get/image-1703067361701.png"
             alt="No Image"
           />
           <img src="img/Chính hãng.png" alt="real" className="img-child" />
@@ -49,23 +49,23 @@ const ProductItem = (props) => {
           <div className="rating">
             <div className="star">
               <img
-                src={`https://three-rats-fly.loca.lt/api/v1/image/get/image-1703043325304.svg`}
+                src={`https://weak-paws-smash.lo ca.lt/api/v1/image/get/image-1703043325304.svg`}
                 alt="start"
               />
               <img
-                src={`https://three-rats-fly.loca.lt/api/v1/image/get/image-1703043325304.svg`}
+                src={`https://weak-paws-smash.lo ca.lt/api/v1/image/get/image-1703043325304.svg`}
                 alt="start"
               />
               <img
-                src={`https://three-rats-fly.loca.lt/api/v1/image/get/image-1703043325304.svg`}
+                src={`https://weak-paws-smash.lo ca.lt/api/v1/image/get/image-1703043325304.svg`}
                 alt="start"
               />
               <img
-                src={`https://three-rats-fly.loca.lt/api/v1/image/get/image-1703043325304.svg`}
+                src={`https://weak-paws-smash.lo ca.lt/api/v1/image/get/image-1703043325304.svg`}
                 alt="start"
               />
               <img
-                src={`https://three-rats-fly.loca.lt/api/v1/image/get/image-1703043325304.svg`}
+                src={`https://weak-paws-smash.lo ca.lt/api/v1/image/get/image-1703043325304.svg`}
                 alt="start"
               />
             </div>

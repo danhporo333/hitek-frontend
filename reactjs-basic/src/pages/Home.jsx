@@ -13,7 +13,7 @@ import {
 import { Button, Modal, Input, Space, message } from "antd";
 import axios from "axios";
 import md5 from "md5";
-const LoginURL = "https://three-rats-fly.loca.lt/api/v1/auth/login";
+const LoginURL = "https://weak-paws-smash.lo ca.lt/api/v1/auth/login";
 
 // const userData = {
 //   userName: "dung",
