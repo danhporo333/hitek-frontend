@@ -4,7 +4,7 @@ import { message } from "antd";
 import axios from "axios";
 import md5 from "md5";
 import { useNavigate } from "react-router-dom";
-const LoginURL = "https://weak-paws-smash.loca.lt/api/v1/auth/login";
+const LoginURL = "https://tiki.loca.lt/api/v1/auth/login";
 
 function Login() {
   // const [isModalOpen, setIsModalOpen] = useState(false);

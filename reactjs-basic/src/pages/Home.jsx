@@ -13,7 +13,7 @@ import {
 import { Button, Modal, Input, Space, message } from "antd";
 import axios from "axios";
 import md5 from "md5";
-const LoginURL = "https://weak-paws-smash.lo ca.lt/api/v1/auth/login";
+const LoginURL = "https://tiki.loca.lt/api/v1/auth/login";
 
 // const userData = {
 //   userName: "dung",
@@ -31,13 +31,6 @@ const Home = () => {
   };
 
   const handleOk = async () => {
-    //login
-    // if (userName === "admin" && passWord === "123456") {
-    //   message.success("Chúc Mừng Đăng nhập thành công", 1.0);
-    // } else {
-    //   message.error("lêu Lêu Đăng nhập thất bại", 2.0);
-    // }
-    // setIsModalOpen(false);
     console.log(userName, passWord);
     try {
       const body = {
@@ -85,36 +78,6 @@ const Home = () => {
       {/* Phần Footer */}
       <FooterComponent />
 
-      {/* <Modal
-        okText="Đăng nhập"
-        cancelText="Hủy"
-        title="Đăng nhập"
-        visible={isModalOpen}
-        onOk={handleOk}
-        onCancel={handleCancel}
-      >
-        <Input
-          onChange={(event) => {
-            setUsername(event.target.value);
-          }}
-          placeholder="Tài Khoản"
-          prefix={<UserOutlined />}
-        />
-
-        <div style={{ margin: "25px 0" }}></div>
-
-        <Space style={{ width: "100%" }} direction="vertical">
-          <Input.Password
-            onChange={(event) => {
-              setPassword(event.target.value);
-            }}
-            placeholder="Mật Khẩu"
-            iconRender={(visible) =>
-              visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-            }
-          />
-        </Space>
-      </Modal> */}
     </>
   );
 };

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ProductItem from "./product-page/ProductItem";
 import Item from "antd/es/list/Item";
-const productURL = `https://weak-paws-smash.loca.lt/api/v1/product?fields=["$all"]`;
+const productURL = `https://tiki.loca.lt/api/v1/product?fields=["$all"]`;
 
 function App() {
   const Body = () => {
@@ -83,63 +83,3 @@ function App() {
 }
 
 export default App;
-
-// const arrayItem = [
-//   {
-//     quantity: 1000,
-//     discount: 1000,
-//     nameItem: "iPhone 15 Pro Max",
-//     image: "img/15prmax.png",
-//     star: "img/star.svg",
-//   },
-//   {
-//     quantity: 1000,
-//     discount: 1000,
-//     nameItem: "iPhone 15 Pro Max",
-//     image: "img/15prmax.png",
-//     star: "img/star.svg",
-//   },
-//   {
-//     quantity: 1000,
-//     discount: 1000,
-//     nameItem: "iPhone 15 Pro Max",
-//     image: "img/15prmax.png",
-//     star: "img/star.svg",
-//   },
-//   {
-//     quantity: 1000,
-//     discount: 1000,
-//     nameItem: "iPhone 15 Pro Max",
-//     image: "img/15prmax.png",
-//     star: "img/star.svg",
-//   },
-//   {
-//     quantity: 1000,
-//     discount: 1000,
-//     nameItem: "iPhone 15 Pro Max",
-//     image: "img/15prmax.png",
-//     star: "img/star.svg",
-//   },
-//   {
-//     quantity: 1000,
-//     discount: 1000,
-//     nameItem: "iPhone 15 Pro Max",
-//     image: "img/15prmax.png",
-//     star: "img/star.svg",
-//   },
-//   {
-//     quantity: 1000,
-//     discount: 1000,
-//     nameItem: "iPhone 15 Pro Max",
-//     image: "img/15prmax.png",
-//     star: "img/star.svg",
-//   },
-//   {
-//     quantity: 1000,
-//     discount: 1000,
-//     nameItem: "iPhone 15 Pro Max",
-//     image: "img/15prmax.png",
-//     star: "img/star.svg",
-//   },
-// ];
-// console.log(arrayItem);

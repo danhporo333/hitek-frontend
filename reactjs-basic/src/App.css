@@ -114,7 +114,7 @@ html {
   white-space: nowrap;
   text-overflow: ellipsis;
   display: inline-block;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .register span:first-child {
@@ -138,14 +138,6 @@ html {
   color: hsla(0, 0%, 100%, 0.7);
 }
 
-.register a {
-  text-decoration: none;
-  color: #fff;
-}
-
-.register a:hover {
-  color: hsla(0, 0%, 100%, 0.7);
-}
 /* Giỏ hàng */
 
 .cartItem {
@@ -361,7 +353,7 @@ footer {
   padding-left: 15px;
   padding-right: 15px;
   margin: 0 auto;
-  height: 990px;
+  /* height: 1028px; */
 }
 
 .container-main .main .header-main {
@@ -431,7 +423,7 @@ footer {
   background: white;
   padding: 0px 0px 16px;
   border-radius: 0px 0px 4px 4px;
-  height: 500px;
+  /* height: 500px; */
   border-radius: 19px;
 }
 
@@ -819,5 +811,3 @@ footer {
 .categoryBarContent .item:hover {
   border-bottom: 4px solid rgb(188, 192, 197);
 }
-
-/* đang nhập */

@@ -15,6 +15,19 @@ const Banner = () => {
       <div className="banner-right">
         <img src="img/banner1.jpg" alt="Sub Banner" />
       </div>
+
+      {/* <div className="buttons">
+        <button id="prev">
+          <i class="bx bxs-chevron-left"></i>
+        </button>
+        <button id="next">
+          <i class="bx bxs-chevron-right"></i>
+        </button>
+      </div>
+      <ul className="dots">
+        <li className="active"></li>
+        <li></li>
+      </ul> */}
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { message } from "antd";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import md5 from "md5";
-const RegisterURL = "https://weak-paws-smash.loca.lt/api/v1/auth/register";
+const RegisterURL = "https://tiki.loca.lt/api/v1/auth/register";
 
 function Register() {
   const [fullName, setFullname] = useState("");
@@ -28,13 +28,13 @@ function Register() {
         username: userName,
         email: Email,
         phonenumber: phoneNumber,
-        password: md5(passWord), // Encrypting the password
+        password: md5(passWord), 
       });
       console.log(response);
       message.success("Tạo tài khoản thành công");
-      navigate("/login"); // Redirect to login page after successful registration
+      navigate("/login"); 
     } catch (error) {
-      message.error("An error occurred during registration");
+      message.error("xảy ra lỗi trong quá trình đăng kí");
     }
   };
   return (
