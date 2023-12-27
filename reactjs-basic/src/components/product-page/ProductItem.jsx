@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const ProductItem = (props) => {
   const data = props?.data;
   // const images = props?.images;
-  console.log(data, "productItem");
+  // console.log(data, "productItem");
   const formatCurrency = (price) =>
     new Intl.NumberFormat("vi-VN", {
       style: "currency",
@@ -15,7 +15,7 @@ const ProductItem = (props) => {
       <div className="item1">
         <div className="thumbnail">
           <img
-            src="https://tiki.loca.lt/api/v1/image/get/image-1703067361701.png"
+            src="https://tiki.loca.lt/api/v1/image/get/image-1703661037811.png"
             alt="No Image"
           />
           <img src="img/Chính hãng.png" alt="real" className="img-child" />

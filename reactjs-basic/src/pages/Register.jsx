@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { message } from "antd";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import md5 from "md5";
+import bcrypt from "bcryptjs"
 const RegisterURL = "https://tiki.loca.lt/api/v1/auth/register";
 
 function Register() {
@@ -23,13 +23,16 @@ function Register() {
     }
 
     try {
-      const response = await axios.post(RegisterURL, {
-        fullname: fullName,
-        username: userName,
-        email: Email,
-        phonenumber: phoneNumber,
-        password: md5(passWord), 
-      });
+       // Sử dụng bcryptjs để hash mật khẩu trước khi gửi lên server
+       const hashedPassword = bcrypt.hashSync(passWord, 10);
+
+       const response = await axios.post(RegisterURL, {
+         fullname: fullName,
+         username: userName,
+         email: Email,
+         phonenumber: phoneNumber,
+         password: hashedPassword, // Gửi mật khẩu đã được mã hóa
+       });
       console.log(response);
       message.success("Tạo tài khoản thành công");
       navigate("/login"); 

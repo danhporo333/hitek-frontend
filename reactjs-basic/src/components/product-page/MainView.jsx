@@ -2,31 +2,32 @@ import { React, useState, useEffect } from "react";
 import ProductItem from "./ProductItem";
 import axios from "axios";
 import { useSearchParams } from "react-router-dom";
-const productURL = `https://small-melons-stare.loca.lt/api/v1/product?fields=["$all"]`;
+const productURL = `https://tiki.loca.lt/api/v1/product?fields=["$all"]`;
 
 const MainView = () => {
   const [searchParams] = useSearchParams();
-
   const [products, setProducts] = useState("");
+  const [subcategoriesId, setSubcategoriesId] = useState("");
   console.log(products);
+  // console.log("searchParams", searchParams);
   const getProducts = async () => {
     try {
-      const res = await axios.get(
-        // `${productURL}?filter={"category":"electronics"}`
-        productURL
-      );
-      const arrayItem1 = res?.data?.results?.objects?.rows.map(
-        (value, index) => {
-          return {
-            name: value?.name,
-            price: value?.price,
-            description: value?.description,
-            image: value?.image,
-          };
-        }
-      );
-      // console.log(arrayItem);
+      const res = await axios.get(productURL);
+      console.log("danh", res);
+      const arrayItem1 = res?.data?.results?.objects?.rows;
+      console.log("danha", arrayItem1);
       setProducts(arrayItem1);
+
+      const subcategoriesIdArray = arrayItem1.map(
+        (product) => product.subcategoriesid || ""
+      );
+      setSubcategoriesId(subcategoriesIdArray);
+      console.log("1111111", subcategoriesIdArray);
+
+      const filteredProducts = products.filter((product) =>
+        subcategoriesId.includes(product.subcategoriesid)
+      );
+      console.log(filteredProducts, "2222222");
     } catch (error) {
       console.log("ko gọi được");
     }
@@ -83,5 +84,3 @@ const MainView = () => {
     </div>
   );
 };
-
-export default MainView;

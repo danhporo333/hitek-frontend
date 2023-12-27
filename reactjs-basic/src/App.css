@@ -138,6 +138,14 @@ html {
   color: hsla(0, 0%, 100%, 0.7);
 }
 
+.register a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.register a:hover {
+  color: hsla(0, 0%, 100%, 0.7);
+}
 /* Giỏ hàng */
 
 .cartItem {
@@ -353,7 +361,7 @@ footer {
   padding-left: 15px;
   padding-right: 15px;
   margin: 0 auto;
-  /* height: 1028px; */
+  /* height: 990px; */
 }
 
 .container-main .main .header-main {
@@ -423,7 +431,6 @@ footer {
   background: white;
   padding: 0px 0px 16px;
   border-radius: 0px 0px 4px 4px;
-  /* height: 500px; */
   border-radius: 19px;
 }
 
@@ -572,6 +579,74 @@ footer {
   margin-right: auto;
 }
 
+/* .banner-container .banner-list {
+  position: absolute;
+  width: max-content;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  transform: 1s;
+}
+
+.banner-container .banner-list img {
+  width: 1300px;
+  max-width: 100vw;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-container .buttons {
+  position: absolute;
+  top: 45%;
+  left: 5%;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.banner-container .buttons button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff5;
+  color: #ffffff;
+  border: none;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.banner-container .dots {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  color: #fff;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.banner-container .dots li {
+  list-style: none;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  margin: 10px;
+  border-radius: 20px;
+  transition: 0.5s;
+}
+
+.banner-container .dots li .active {
+  width: 30px;
+}
+
+@media screen and (max-width: 768px){
+  .banner-container{
+      height: 400px;
+  }
+} */
 .banner-left {
   flex: 1;
   background-color: red;
@@ -581,7 +656,7 @@ footer {
   width: 480px;
   margin-left: 8px;
   background-color: blue;
-}
+} 
 /* căn chỉnh hình ảnh */
 .banner-left img {
   height: 100%;
@@ -811,3 +886,5 @@ footer {
 .categoryBarContent .item:hover {
   border-bottom: 4px solid rgb(188, 192, 197);
 }
+
+/* đang nhập */

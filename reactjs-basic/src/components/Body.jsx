@@ -11,17 +11,18 @@ function App() {
     const getProducts = async () => {
       try {
         const res = await axios.get(productURL);
-        const arrayItem = res?.data?.results?.objects?.rows.map(
-          (value, index) => {
-            return {
-              name: value?.name,
-              price: value?.price,
-              description: value?.description,
-              image: value?.image,
-            };
-          }
-        );
-        // console.log(arrayItem, "First");
+        const arrayItem = res?.data?.results?.objects?.rows
+        // .map(
+        //   (value, index) => {
+        //     return {
+        //       name: value?.name,
+        //       price: value?.price,
+        //       description: value?.description,
+        //       image: value?.image,
+        //     };
+        //   }
+        //);
+        console.log(arrayItem, "First");
         setProducts(arrayItem);
       } catch (error) {}
     };
