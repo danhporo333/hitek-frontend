@@ -7,25 +7,52 @@ const productURL = `https://tiki.loca.lt/api/v1/product?fields=["$all"]`;
 function App() {
   const Body = () => {
     const [products, setProducts] = useState("");
-    console.log(products);
+    // console.log(products, "product");
     const getProducts = async () => {
       try {
         const res = await axios.get(productURL);
-        const arrayItem = res?.data?.results?.objects?.rows
-        // .map(
-        //   (value, index) => {
-        //     return {
-        //       name: value?.name,
-        //       price: value?.price,
-        //       description: value?.description,
-        //       image: value?.image,
-        //     };
-        //   }
-        //);
-        console.log(arrayItem, "First");
+        const arrayItem = res?.data?.results?.objects?.rows.map(
+          (value, index) => {
+            return {
+              name: value?.name,
+              price: value?.price,
+              description: value?.description,
+              image: value?.image,
+              quantity: value?.stock_quantity,
+              discount: value?.percent_discount,
+            };
+          }
+        );
+        // console.log(arrayItem, "First");
         setProducts(arrayItem);
       } catch (error) {}
     };
+    // const [cart, setCart] = useState([]);
+    //   const sum = (payload) => {
+    //     const item = cart.find((el) => payload._id === el._id);
+
+    //     if (item) {
+    //       const price = item.discount
+    //         ? item.price - (item.price * item.discount) / 100
+    //         : item.price;
+
+    //       item.cartQuantity = item.cartQuantity + payload.cartQuantity;
+    //       item.total = item.cartQuantity * price;
+    //     } else {
+    //       const price = payload.discount
+    //         ? payload.price - (payload.price * payload.discount) / 100
+    //         : payload.price;
+
+    //       setCart([
+    //         ...cart,
+    //         {
+    //           ...payload,
+    //           cartQuantity: payload.cartQuantity,
+    //           total: price,
+    //         },
+    //       ]);
+    //     }
+    //   }
     useEffect(() => {
       getProducts();
     }, []);

@@ -174,6 +174,12 @@ html {
   color: #333 !important;
 }
 
+.cartItem .cartDropdown a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 12px;
+}
+
 /* Free ship Logo */
 
 .freeshipLogo {
@@ -427,6 +433,12 @@ footer {
   height: 20px;
 }
 
+.product-item {
+  height: auto;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
 .home {
   background: white;
   padding: 0px 0px 16px;
@@ -435,39 +447,32 @@ footer {
 }
 
 .home .content {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  background-color: rgb(255, 255, 255);
-  border-top: 1px solid rgb(242, 242, 242);
-  border-radius: 19px;
-}
-
-.home .content {
   display: grid;
   grid-template-columns: repeat(4, 300px);
-  gap: 24px;
+  gap: 22px;
   background: rgb(255, 255, 255);
-}
-
-.home .content .item1 {
-  height: auto;
-  display: flex;
-  overflow: hidden;
-  flex-direction: column;
-  border: 1px solid rgb(221, 221, 227);
-  border-radius: 16px;
+  border: 1px solid rgb(242, 242, 242);
 }
 
 .item1:hover {
   cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 20px;
   opacity: 0.95;
 }
 .home .content .item1 span div.thumbnail {
   text-align: center;
   position: relative;
   width: 100%;
+}
+
+.thumbnail {
+  display: flex;
+  flex-direction: column;
+}
+
+.thumbnail .thumbnail-image {
+  object-fit: contain;
+  height: 400px;
 }
 
 .home .content .item1 span div.thumbnail img.img-child {
@@ -497,10 +502,6 @@ footer {
   width: 100%;
   height: 100%;
 }
-/* .home .content .item span div.info div.name {
-  margin-top: 20px;
-  overflow: hidden;
-}  */
 
 .home .content .item1 span div.info div.name > h3 {
   max-width: 180px;
@@ -524,12 +525,18 @@ footer {
 
 .rating {
   display: flex;
+  height: 40px;
 }
 .rating .star {
   display: flex;
   align-items: center;
-  padding-right: 6px;
+  padding-right: 2px;
 }
+
+.rating .star p {
+  padding-left: 12px;
+}
+
 .name h5 {
   margin: 0px 0px;
 }
@@ -553,6 +560,11 @@ footer {
 .sell {
   display: flex;
   align-items: center;
+}
+
+.discount {
+  font-size: 20px;
+  font-weight: 600;
 }
 
 @media screen and (max-width: 1400px) {
@@ -656,7 +668,7 @@ footer {
   width: 480px;
   margin-left: 8px;
   background-color: blue;
-} 
+}
 /* căn chỉnh hình ảnh */
 .banner-left img {
   height: 100%;

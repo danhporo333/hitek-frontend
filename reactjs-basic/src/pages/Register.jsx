@@ -1,7 +1,7 @@
-import "../Register.css";
 import React, { useState } from "react";
 import { message } from "antd";
 import { useNavigate } from "react-router-dom";
+import "../page-css/Register.css";
 import axios from "axios";
 import bcrypt from "bcryptjs"
 const RegisterURL = "https://tiki.loca.lt/api/v1/auth/register";

@@ -1,44 +1,49 @@
-import { React, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ProductItem from "./ProductItem";
 import axios from "axios";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useLocation } from "react-router-dom";
 const productURL = `https://tiki.loca.lt/api/v1/product?fields=["$all"]`;
 
 const MainView = () => {
-  const [searchParams] = useSearchParams();
-  const [products, setProducts] = useState("");
-  const [subcategoriesId, setSubcategoriesId] = useState("");
-  console.log(products);
-  // console.log("searchParams", searchParams);
-  const getProducts = async () => {
+  const [products, setProducts] = useState([]);
+  console.log("product", products);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const selectedCategoryId = searchParams.get("category");
+  console.log(selectedCategoryId)
+
+  const getProductPage = async () => {
     try {
       const res = await axios.get(productURL);
-      console.log("danh", res);
-      const arrayItem1 = res?.data?.results?.objects?.rows;
-      console.log("danha", arrayItem1);
-      setProducts(arrayItem1);
-
-      const subcategoriesIdArray = arrayItem1.map(
-        (product) => product.subcategoriesid || ""
+      console.log("API Response:", res.data.results.objects.rows); // In ra cấu trúc dữ liệu từ API
+      const arrayItem1 = res?.data?.results?.objects?.rows.map((value, index) => {
+        return {
+          categorisid: value?.categorisid, // Xác định tên thuộc tính chính xác từ cấu trúc dữ liệu API
+          description: value?.description,
+          image: value?.image,
+          price: value?.price,
+          discount: value?.percent_discount,
+        };
+      });
+      
+      const filteredProducts = arrayItem1.filter(
+        (product) => product.categorisid === selectedCategoryId
       );
-      setSubcategoriesId(subcategoriesIdArray);
-      console.log("1111111", subcategoriesIdArray);
-
-      const filteredProducts = products.filter((product) =>
-        subcategoriesId.includes(product.subcategoriesid)
-      );
-      console.log(filteredProducts, "2222222");
+      console.log(filteredProducts,"filteredProducts")
+      setProducts(filteredProducts);
     } catch (error) {
-      console.log("ko gọi được");
+      console.error("Error fetching products:", error);
     }
   };
+
   useEffect(() => {
-    getProducts();
-  }, []);
+    getProductPage();
+  }, [selectedCategoryId]);
+
 
   return (
     <div className="mainViewContainer">
-      {/* bên trên  */}
+      {/* phần trên */}
       <div className="mainViewSummary">
         <div className="summaryTitle">
           <h1>Điện Thoại - Máy Tính Bảng </h1>
@@ -68,14 +73,13 @@ const MainView = () => {
           </div>
         </div>
       </div>
-
       {/* phía dưới*/}
       <div className="mainViewProductList home">
         <div className="content">
           {products && products.length > 0 ? (
-            products.map((item, index) => {
-              return <ProductItem data={item} key={index} />;
-            })
+            products.map((item, index) => (
+              <ProductItem data={item} key={index} />
+            ))
           ) : (
             <div>Không có dữ liệu</div>
           )}
@@ -84,3 +88,5 @@ const MainView = () => {
     </div>
   );
 };
+
+export default MainView;

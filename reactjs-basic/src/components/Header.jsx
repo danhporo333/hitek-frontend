@@ -17,6 +17,7 @@ const login = [
   { url: "/register", title: "Đăng kí" },
 ];
 
+const cart = [{ url: "/cart", title: "Giỏ Hàng" }];
 const Header = ({ isModalOpen }) => {
   const navigate = useNavigate();
   function logout() {
@@ -72,29 +73,43 @@ const Header = ({ isModalOpen }) => {
                   height={32}
                 />
                 <div className="register">
-              {/* Conditionally render login/register or username and logout based on user login status */}
-              {userLocalStorage ? (
-                <>
-                  <span className="account-text">Tài khoản: </span>
-                  <span className="username">{userLocalStorage.username}</span>
-                  <span onClick={logout} className="sign-up">
-                    Đăng xuất
-                  </span>
-                </>
-              ) : (
-                login.map((loginItem) => (
-                  <Link to={loginItem.url} key={loginItem.url}>{loginItem.title}</Link>
-                ))
-              )}
-            </div>
+                  {/* Conditionally render login/register or username and logout based on user login status */}
+                  {userLocalStorage ? (
+                    <>
+                      <span className="account-text">Tài khoản: </span>
+                      <span className="username">
+                        {userLocalStorage.username}
+                      </span>
+                      <span onClick={logout} className="sign-up">
+                        Đăng xuất
+                      </span>
+                    </>
+                  ) : (
+                    login.map((loginItem) => (
+                      <Link to={loginItem.url} key={loginItem.url}>
+                        {loginItem.title}
+                      </Link>
+                    ))
+                  )}
+                </div>
               </div>
               {/* Phần giỏ hàng */}
               <div className="cartItem">
-                <div className="cartWrapper">
+                <div className="cartWrapper"> 
                   <img src="/img/cart.png" alt="Cart" width={32} height={32} />
                   <span className="cartNumber">0</span>
                 </div>
-                <span>Giỏ Hàng </span>
+                {/* Thêm phần giỏ hàng */}
+                {cart.length > 0 && (
+                  <div className="cartDropdown">
+                    {/* Map các mục trong giỏ hàng */}
+                    {cart.map((cartItem) => (
+                      <Link to={cartItem.url} key={cartItem.url}>
+                        {cartItem.title}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>
